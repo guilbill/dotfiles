@@ -1,5 +1,6 @@
 #  Customize BASH PS1 prompt to show current GIT repository and branch. Inspired by Mike Stewart.
 
+
 export PS1=\[\e[0;90m\]\T\[\e[0m\]'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
