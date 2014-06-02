@@ -1,0 +1,8 @@
+[alias]
+	status = st
+	checkout = co
+	commit = ct
+	push = ps
+	diff = df
+	branch = br
+	pull = pl
