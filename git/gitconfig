@@ -1,8 +1,13 @@
+[user]
+	email = guillaume.billey@inist.fr
+	name = Guillaume BILLEY
+[core]
+	autocrlf = false
 [alias]
-	status = st
-	checkout = co
-	commit = ct
-	push = ps
-	diff = df
-	branch = br
-	pull = pl
+	st = status
+	co = checkout
+	ct = commit
+	ps = push
+	df = diff
+	br = branch
+	pl = pull
