@@ -23,3 +23,5 @@
 	track = checkout --track
 [color]
 	ui = auto
+[push]
+	default = simple
