@@ -83,6 +83,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias local-branch="git branch -vv | grep disparue | xargs -0 -L1 | grep -oP '^  [^ ]+'"
+alias prune-branch="git branch -vv | grep disparue | xargs -0 -L1 | grep -oP '^  [^ ]+' | xargs -I % sh -c 'git branch -D %'"
 
 # Set java home
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
