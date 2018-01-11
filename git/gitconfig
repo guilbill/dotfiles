@@ -1,5 +1,5 @@
 [user]
-	email = guillaume.billey@inist.fr
+	email = guilbill@gmail.com
 	name = Guillaume BILLEY
 [core]
 	autocrlf = false
@@ -16,7 +16,8 @@
 	undo = reset --hard "HEAD~1"
 	undosoft = reset --soft "HEAD~1"
 	uncommit = reset "HEAD~1"
-	ls = log --graph --branches --oneline --decorate
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
 	amend = !"git add -A && git commit --amend"
 	stashm = stash save -u
@@ -25,3 +26,5 @@
 	ui = auto
 [push]
 	default = simple
+[rebase]
+	autostash = true
