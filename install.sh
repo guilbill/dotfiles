@@ -4,6 +4,7 @@ then
 fi
 
 ln -sv ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -sv ~/.dotfiles/git/gitignore ~/.gitignore
 
 if [ -e ~/.zshrc ]
 then

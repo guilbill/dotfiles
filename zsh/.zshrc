@@ -1,13 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
+export TERM="xterm-256color"
 export ZSH=/home/gbilley/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time battery ram load)
 DEFAULT_USER="gbilley"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +55,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow docker npm node ng mvn ruby gem yarn jira adb)
+plugins=(git git-flow docker npm node ng mvn ruby gem yarn jira adb minikube kubectl web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,12 +89,34 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias local-branch="git branch -vv | grep disparue | xargs -0 -L1 | grep -oP '^  [^ ]+'"
 alias prune-branch="git branch -vv | grep disparue | xargs -0 -L1 | grep -oP '^  [^ ]+' | xargs -I % sh -c 'git branch -D %'"
+alias k="kubectl"
 
 # Set java home
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export NODE_HOME=/opt/node-v6.10.2-linux-x64/bin
+export NODE_HOME=/opt/node-v6.10.2-linux-x64
+export MAVEN_HOME=/opt/apache-maven-3.5.0
+export MONGO_HOME=/opt/mongodb-linux-x86_64-amazon-3.4.5
+export ADB_HOME=/opt/adb
+export GOPATH=/usr/lib/go-1.10
 
-export PATH=$PATH:$NODE_HOME
+export PATH=$PATH:$NODE_HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$MONGO_HOME/bin:$ADB_HOME:$GOPATH/bin
 # Autocompletion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/gbilley/.sdkman"
+[[ -s "/home/gbilley/.sdkman/bin/sdkman-init.sh" ]] && source "/home/gbilley/.sdkman/bin/sdkman-init.sh"
+
+# tabtab source for jhipster package
+# uninstall by removing these lines or running `tabtab uninstall jhipster`
+[[ -f /home/gbilley/.config/yarn/global/node_modules/tabtab/.completions/jhipster.zsh ]] && . /home/gbilley/.config/yarn/global/node_modules/tabtab/.completions/jhipster.zsh
+
+export CATALIE_HOME=/opt/apache-tomcat-9.0.0.M9
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# bag - bash alias generator
+export BAG_HOME=/opt/bag
+source /opt/bag/aliases
+alias bag="java -jar $BAG_HOME/bag-1.0-SNAPSHOT.jar"
