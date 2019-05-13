@@ -116,7 +116,3 @@ export CATALIE_HOME=/opt/apache-tomcat-9.0.0.M9
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# bag - bash alias generator
-export BAG_HOME=/opt/bag
-source /opt/bag/aliases
-alias bag="java -jar $BAG_HOME/bag-1.0-SNAPSHOT.jar"
