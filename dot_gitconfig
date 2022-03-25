@@ -1,0 +1,31 @@
+[user]
+	email = guillaume.billey@pharmagest.com
+	name = Guillaume BILLEY
+[core]
+	autocrlf = input
+	editor = atom --wait
+[alias]
+	st = status -sb
+	co = checkout
+	ct = commit -m
+	ps = push
+	df = diff
+	br = branch
+	pl = pull
+	plrb = pull --rebase
+	unadd = reset HEAD
+	undo = reset --hard "HEAD~1"
+	undosoft = reset --soft "HEAD~1"
+	uncommit = reset "HEAD~1"
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
+	amend = !"git add -A && git commit --amend"
+	stashm = stash save -u
+	track = checkout --track
+[color]
+	ui = auto
+[push]
+	default = simple
+[rebase]
+	autostash = true
